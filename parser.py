@@ -1,4 +1,5 @@
 import sys
+from stack import Stack
 
 
 def main(path_to_lisp_file):
@@ -6,8 +7,15 @@ def main(path_to_lisp_file):
     if file is None:
         sys.exit()
 
+    stack = Stack()
+
     for line in file.readlines():
+        stack.s.push(line)
+
+    for line in stack.s:
         print(line)
+
+    file.close()
 
 
 def open_lisp_file(file_path):
